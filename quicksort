@@ -1,0 +1,43 @@
+public class Main
+{
+	public static void main(String[] args) {
+	int[] arr ={4,43,0,8,27,87,5};
+	int len=arr.length;
+Main q=new Main();
+	q.quicksort(arr,0,len-1);
+	q.printarray(arr);
+	}
+	int partition(int arr[] ,int low,int high){
+	    int pivot=arr[(low+high)/2];
+	    while(low<=high){
+	        while(arr[low]<pivot){
+	            low++;
+	        }
+	        while(arr[high] > pivot){
+	            high--;
+	        }
+	        if(low<=high){
+	            int temp=arr[low];
+	            arr[low]=arr[high];
+	            arr[high]=temp;
+	            high--;
+	            low++;
+	        }
+	       }
+	    return low;
+	}
+	void quicksort(int[] arr,int low,int high){
+	   int pi= partition(arr,low,high);
+	    if(low<pi-1){
+	        quicksort(arr,low,pi-1);
+	    }
+	    if(pi<high){
+	        quicksort(arr,pi,high);
+	    }
+	}
+	 public void printarray(int arr[]){
+	    for(int i:arr){
+	        System.out.println(i+" ");
+	    }
+	}
+}
